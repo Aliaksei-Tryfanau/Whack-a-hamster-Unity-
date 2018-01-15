@@ -5,7 +5,8 @@ using System;
 
 public class HamsterMovement : MonoBehaviour
 {
-
+    AudioSource scoreSound;
+    [SerializeField] ParticleSystem explosion;
     public float limitations_y;
     public float speed_y;
     float currentTime;
@@ -16,7 +17,7 @@ public class HamsterMovement : MonoBehaviour
 
     void Start()
     {
-
+        scoreSound = GetComponent<AudioSource>();
     }
 
     public void Move()
@@ -75,6 +76,8 @@ public class HamsterMovement : MonoBehaviour
     {
         if (hamsterIsClickable == true)
         {
+            scoreSound.Play();
+            explosion.Play();
             HamsterController.score += 10;
             hamsterIsClickable = false;
         }

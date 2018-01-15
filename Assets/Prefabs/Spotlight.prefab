@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4020913275966588}
   - component: {fileID: 108884158403998302}
-  - component: {fileID: 114657888954864514}
+  - component: {fileID: 114158901014449180}
   m_Layer: 0
   m_Name: Spotlight
   m_TagString: Untagged
@@ -77,7 +77,7 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!114 &114657888954864514
+--- !u!114 &114158901014449180
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
