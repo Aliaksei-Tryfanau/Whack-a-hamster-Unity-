@@ -403,7 +403,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -427,7 +427,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6eb9255af258aaf4bba1a95664a3d0b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosion: {fileID: 19811986, guid: 6636b3078b0905e489f698a11b7a6b6b, type: 2}
+  explosion: {fileID: 198269828417956100}
   limitations_y: 2
   speed_y: 5
 --- !u!135 &135270531030677612
@@ -499,7 +499,7 @@ ParticleSystem:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1577974145943520}
   serializedVersion: 5
-  lengthInSec: 0.1
+  lengthInSec: 0.3
   simulationSpeed: 1
   stopAction: 0
   looping: 0
@@ -511,7 +511,7 @@ ParticleSystem:
   startDelay:
     serializedVersion: 2
     minMaxState: 0
-    scalar: 0.1
+    scalar: 0
     minScalar: 0.1
     maxCurve:
       serializedVersion: 2
@@ -552,7 +552,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 2
-  randomSeed: -1595967855
+  randomSeed: 2009496395
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -3827,7 +3827,7 @@ ParticleSystemRenderer:
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: a0cec58fc32f482418596ffdf7c0d693, type: 2}
+  - {fileID: 0}
   - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
