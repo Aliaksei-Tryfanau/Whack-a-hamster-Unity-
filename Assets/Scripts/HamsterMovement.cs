@@ -8,16 +8,20 @@ public class HamsterMovement : MonoBehaviour
     AudioSource scoreSound;
     [SerializeField] ParticleSystem explosion;
     public float limitations_y;
-    public float speed_y;
+    float speed_y;
     float currentTime;
     bool timeToStop = false;
     float timer;
     Vector3 newPos;
     bool hamsterIsClickable = true;
+    float cycleDelta_y;
+
 
     void Start()
     {
         scoreSound = GetComponent<AudioSource>();
+        speed_y = UnityEngine.Random.Range(HamsterController.minSpeed, HamsterController.maxSpeed);
+        Debug.LogError(HamsterController.minSpeed + " " + HamsterController.maxSpeed + " " + speed_y);
     }
 
     public void Move()
@@ -27,6 +31,7 @@ public class HamsterMovement : MonoBehaviour
         if (timeToStop == false)
         {
             transform.position = newPos + new Vector3(0.0f, speed_y, 0.0f) * Time.deltaTime;
+            cycleDelta_y = speed_y * Time.deltaTime;
         }
 
         if (transform.position.y >= limitations_y)
@@ -57,6 +62,7 @@ public class HamsterMovement : MonoBehaviour
             speed_y *= -1;
             timer = 0f;
             timeToStop = false;
+            transform.position += new Vector3(0.0f, -cycleDelta_y, 0.0f);
         }
     }
 
@@ -66,9 +72,10 @@ public class HamsterMovement : MonoBehaviour
         timeToStop = true;
         if (timer >= HamsterController.delayBottom)
         {
-            speed_y *= -1;
+            speed_y = UnityEngine.Random.Range(HamsterController.minSpeed, HamsterController.maxSpeed);
             timer = 0f;
             timeToStop = false;
+            transform.position += new Vector3(0.0f, -cycleDelta_y, 0.0f);
         }
     }
 

@@ -286,10 +286,12 @@ MonoBehaviour:
   - {fileID: 871299245}
   - {fileID: 2086950699}
   - {fileID: 8052740}
-  timer: 55
-  setDelayTop: 3
-  setDelayBottom: 2
+  timer: 200
+  setDelayTop: 2
+  setDelayBottom: 1
   scoreText: {fileID: 1123515757}
+  setminSpeed: 5
+  setmaxSpeed: 10
 --- !u!82 &71316744
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1179,7 +1181,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1123515755}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 23.099976, y: -81.100006, z: 0}
+  m_LocalPosition: {x: 23.099976, y: -263, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1776016810}
@@ -1187,7 +1189,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 23.1, y: -81.1}
+  m_AnchoredPosition: {x: 23.1, y: -263}
   m_SizeDelta: {x: -891.3, y: -673.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1123515757
@@ -1381,7 +1383,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1776016806}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 766, y: 371, z: 0}
+  m_LocalPosition: {x: 766, y: 375, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1123515756}

@@ -16,11 +16,17 @@ public class HamsterController : MonoBehaviour {
     public Text scoreText;
     public static int score;
 
+    static public float minSpeed;
+    static public float maxSpeed;
+    public float setminSpeed;
+    public float setmaxSpeed;
 
     void Start () {
         godTimer = timer;
         delayTop = setDelayTop;
         delayBottom = setDelayBottom;
+        minSpeed = setminSpeed;
+        maxSpeed = setmaxSpeed;
     }
 	
 	void Update () {
