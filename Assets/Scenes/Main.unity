@@ -292,6 +292,7 @@ MonoBehaviour:
   scoreText: {fileID: 1123515757}
   setminSpeed: 5
   setmaxSpeed: 10
+  setComboTimerLimitation: 5
 --- !u!82 &71316744
 AudioSource:
   m_ObjectHideFlags: 0

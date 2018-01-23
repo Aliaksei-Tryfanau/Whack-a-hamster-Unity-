@@ -16,12 +16,11 @@ public class HamsterMovement : MonoBehaviour
     bool hamsterIsClickable = true;
     float cycleDelta_y;
 
-
     void Start()
     {
         scoreSound = GetComponent<AudioSource>();
         speed_y = UnityEngine.Random.Range(HamsterController.minSpeed, HamsterController.maxSpeed);
-        Debug.LogError(HamsterController.minSpeed + " " + HamsterController.maxSpeed + " " + speed_y);
+        //Debug.LogError(HamsterController.minSpeed + " " + HamsterController.maxSpeed + " " + speed_y);
     }
 
     public void Move()
@@ -83,10 +82,23 @@ public class HamsterMovement : MonoBehaviour
     {
         if (hamsterIsClickable == true)
         {
+            HamsterController.comboTimer = Time.time;
             scoreSound.Play();
             explosion.Play();
-            HamsterController.score += 10;
             hamsterIsClickable = false;
+            if (HamsterController.comboTimer < HamsterController.comboTimerLimitation)
+            {
+                HamsterController.comboMultiplier += 0.1f;
+                HamsterController.comboMultiplier = Mathf.Clamp(HamsterController.comboMultiplier, 1.0f, 2.0f);
+                HamsterController.score += 10 * HamsterController.comboMultiplier;
+                HamsterController.comboTimer = Time.time;                            // вот тут хочу чтоб он комбо-таймер начал с начала, но он продолжает отсчитывать. Если ставлю comboTimer = 0 не помогает
+            }
+            else
+            {
+                HamsterController.comboMultiplier = 0.9f;
+                HamsterController.score += 10;
+                HamsterController.comboTimer = Time.time;                            // аналогично
+            }
         }
     }
 }
