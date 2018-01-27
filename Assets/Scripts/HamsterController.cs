@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HamsterController : MonoBehaviour {
+public class HamsterController : MonoBehaviour
+{
 
     public List<HamsterMovement> hamstersList;
     public float timer;
@@ -30,7 +31,8 @@ public class HamsterController : MonoBehaviour {
 
     static public float comboTimer;
 
-    void Awake () {
+    void Awake()
+    {
         godTimer = timer;
         delayTop = setDelayTop;
         delayBottom = setDelayBottom;
@@ -38,16 +40,19 @@ public class HamsterController : MonoBehaviour {
         maxSpeed = setmaxSpeed;
         comboTimerLimitation = setComboTimerLimitation;
     }
-	
-	void Update () {
+
+    void Update()
+    {
         for (int i = 0; i < hamstersList.Count; i++)
         {
             if (gameIsRunning == true)
-                    hamstersList[i].Move();
+                hamstersList[i].Move();
         }
 
         if (Input.GetKeyDown(KeyCode.Escape))
+        {
             gameIsRunning = !gameIsRunning;
+        }
 
         scoreText.text = "Score: " + score.ToString();
 

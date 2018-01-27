@@ -8,6 +8,9 @@ public class GameManager : MonoBehaviour
 {
     public AudioSource audio;
     public Text buttonText;
+    public Button musicButton;
+    public Button startGameButton;
+    public Button exitGameButton;
 
     private void Awake()
     {
@@ -20,9 +23,20 @@ public class GameManager : MonoBehaviour
         audio = GetComponent<AudioSource>();
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            musicButton.enabled = true;
+            exitGameButton.enabled = true;
+        }
+    }
     public void LoadFirstScene()
     {
         SceneManager.LoadScene(1);
+        startGameButton.enabled = false;
+        musicButton.enabled = false;
+        exitGameButton.enabled = false;
     }
 
     public void AudioManager()
