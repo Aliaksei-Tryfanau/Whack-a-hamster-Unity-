@@ -8,7 +8,7 @@ public class HamsterController : MonoBehaviour {
     public List<HamsterMovement> hamstersList;
     public float timer;
     static public float godTimer;
-    bool gameIsRunning = true;
+    public static bool gameIsRunning = true;
 
     static public float delayTop;
     static public float delayBottom;
@@ -51,6 +51,6 @@ public class HamsterController : MonoBehaviour {
 
         scoreText.text = "Score: " + score.ToString();
 
-        Debug.Log(comboTimer);
+        Debug.Log("ComboTimer" + comboTimer);
     }
 }

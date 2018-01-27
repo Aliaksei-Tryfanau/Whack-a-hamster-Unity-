@@ -20,7 +20,10 @@ public class HamsterMovement : MonoBehaviour
     {
         scoreSound = GetComponent<AudioSource>();
         speed_y = UnityEngine.Random.Range(HamsterController.minSpeed, HamsterController.maxSpeed);
-        //Debug.LogError(HamsterController.minSpeed + " " + HamsterController.maxSpeed + " " + speed_y);
+
+        timeToStop = true;
+        timer = UnityEngine.Random.Range(0, HamsterController.delayBottom);
+        transform.position = new Vector3(transform.position.x, -limitations_y, transform.position.z);
     }
 
     public void Move()
@@ -80,9 +83,9 @@ public class HamsterMovement : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (hamsterIsClickable == true)
+        if (hamsterIsClickable == true && HamsterController.gameIsRunning == true)
         {
-            HamsterController.comboTimer = Time.time;
+            HamsterController.comboTimer += Time.deltaTime;                 // тут он должен начать отсчет, но этого не происходит
             scoreSound.Play();
             explosion.Play();
             hamsterIsClickable = false;
@@ -91,13 +94,13 @@ public class HamsterMovement : MonoBehaviour
                 HamsterController.comboMultiplier += 0.1f;
                 HamsterController.comboMultiplier = Mathf.Clamp(HamsterController.comboMultiplier, 1.0f, 2.0f);
                 HamsterController.score += 10 * HamsterController.comboMultiplier;
-                HamsterController.comboTimer = Time.time;                            // вот тут хочу чтоб он комбо-таймер начал с начала, но он продолжает отсчитывать. Если ставлю comboTimer = 0 не помогает
+                HamsterController.comboTimer = 0;   
             }
             else
             {
                 HamsterController.comboMultiplier = 0.9f;
                 HamsterController.score += 10;
-                HamsterController.comboTimer = Time.time;                            // аналогично
+                HamsterController.comboTimer = 0;                           
             }
         }
     }
